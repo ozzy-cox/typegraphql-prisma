@@ -11,13 +11,11 @@ import http from "http"
 import { expressMiddleware } from '@apollo/server/express4';
 import { PrismaClient } from "@prisma/client";
 
-import { resolvers } from "../prisma/generated/type-graphql";
+import { resolvers } from "./prisma/generated/type-graphql";
 import { customAuthChecker } from './auth-checker';
 import { fieldExtensionsEstimator, getComplexity, simpleEstimator } from 'graphql-query-complexity';
+import { CustomUserResolver } from './custom/user/Resolver';
 
-interface Context {
-    prisma: PrismaClient;
-}
 
 (
     async function () {
@@ -31,7 +29,10 @@ interface Context {
 
 
         const schema = await buildSchema({
-            resolvers,
+            resolvers: [
+                ...resolvers,
+                CustomUserResolver
+            ],
             authChecker: customAuthChecker,
             authMode: "null",
             // This is necessary for latest class validator version

@@ -8,7 +8,9 @@
     "compile": "tsc && tsc-alias",
     "start": "yarn compile && node ./dist/index.js",
     "dev": "nodemon src/index.ts",
-    "seed": "ts-node --esm --transpile-only ./prisma/seed.ts"
+    "seed": "ts-node --esm --transpile-only ./src/prisma/seed.ts",
+    "generate": "yarn prisma generate --schema=./src/prisma/schema.prisma",
+    "migrate": "yarn prisma migrate dev --schema=./src/prisma/schema.prisma"
   },
   "devDependencies": {
     "@tsconfig/node18": "^1.0.1",

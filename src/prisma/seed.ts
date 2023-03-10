@@ -11,6 +11,7 @@ async function main() {
   const user1 = await prisma.user.create({
     data: {
       email: "alice@prisma.io",
+      password: "asdf1234",
       name: "Alice",
       posts: {
         create: [
@@ -31,6 +32,7 @@ async function main() {
   const user2 = await prisma.user.create({
     data: {
       email: "bob@prisma.io",
+      password: "asdf12345",
       name: "Bob",
       posts: {
         create: [
@@ -49,7 +51,29 @@ async function main() {
     },
   });
 
-  console.log({ user1, user2 });
+  const user3 = await prisma.user.create({
+    data: {
+      email: "o@o.co",
+      password: "asdf",
+      name: "ozan",
+      posts: {
+        create: [
+          {
+            title: "Subscribe to GraphQL Weekly for community news",
+            content: "https://graphqlweekly.com/",
+            published: true,
+          },
+          {
+            title: "Follow Prisma on Twitter",
+            content: "https://twitter.com/prisma",
+            published: false,
+          },
+        ],
+      },
+    },
+  });
+
+  console.log({ user1, user2, user3 });
 }
 
 main()

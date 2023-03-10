@@ -2,6 +2,6 @@ node_modules
 dist
 yarn*
 schema.gql
-prisma/generated/*
-prisma/dev.db
-prisma/migrations/*
+src/prisma/generated/*
+src/prisma/dev.db
+src/prisma/migrations/*
