@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "compile": "tsc && tsc-alias",
     "start": "yarn compile && node ./dist/index.js",

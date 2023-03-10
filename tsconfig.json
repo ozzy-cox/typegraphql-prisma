@@ -19,7 +19,7 @@
             "esnext.asynciterable"
         ],
         "target": "es2020",
-        "module": "esnext",
+        "module": "CommonJS",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "types": [
