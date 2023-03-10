@@ -1,0 +1,7 @@
+node_modules
+dist
+yarn*
+schema.gql
+prisma/generated/*
+prisma/dev.db
+prisma/migrations/*
